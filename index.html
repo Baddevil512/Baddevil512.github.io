@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhishek Vyas — AI/ML Engineer & Agentic Systems Architect</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Chart.js for Radar Chart -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            background-color: #090d16;
+            color: #f8fafc;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            overflow-x: hidden;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .cyan-glow {
+            box-shadow: 0 0 30px -5px rgba(56, 189, 248, 0.25);
+        }
+        .card-glow {
+            box-shadow: 0 0 25px -5px rgba(99, 102, 241, 0.15);
+        }
+        .code-font {
+            font-family: 'Fira Code', Monaco, Consolas, 'Courier New', monospace;
+        }
+        /* Holographic ARC Reactor Animation Keyframes */
+        @keyframes rotateClockwise {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        @keyframes rotateCounter {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(-360deg); }
+        }
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.3; transform: scale(0.98); }
+            50% { opacity: 0.8; transform: scale(1.02); }
+        }
+        .arc-ring-outer {
+            animation: rotateClockwise 25s linear infinite;
+        }
+        .arc-ring-inner {
+            animation: rotateCounter 18s linear infinite;
+        }
+        .hud-pulse {
+            animation: pulseGlow 3s ease-in-out infinite;
+        }
+
+        /* ATS Print Stylesheet */
+        @media print {
+            body {
+                background: white !important;
+                color: black !important;
+                font-family: Arial, sans-serif !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .print-only {
+                display: block !important;
+            }
+            a {
+                text-decoration: underline !important;
+                color: black !important;
+            }
+        }
+        .print-only {
+            display: none;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between">
+
+    <!-- Header Navbar -->
+    <header class="border-b border-slate-800 bg-slate-950/80 backdrop-blur sticky top-0 z-50 no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <span class="text-2xl">⚡</span>
+                <span class="font-extrabold text-xl tracking-tight text-white">ABHISHEK VYAS</span>
+                <span class="bg-indigo-500/10 text-indigo-400 border border-indigo-500/30 text-xs px-2.5 py-0.5 rounded-full font-semibold">AI/ML Engineer</span>
+            </div>
+            
+            <nav class="hidden md:flex items-center space-x-6 text-xs font-semibold text-slate-400">
+                <a href="#overview" class="hover:text-white transition-colors">Overview</a>
+                <a href="#jarvis-hud" class="hover:text-cyan-400 transition-colors flex items-center space-x-1">
+                    <i class="fas fa-atom text-cyan-400"></i>
+                    <span>Jarvis HUD</span>
+                </a>
+                <a href="#skills" class="hover:text-white transition-colors">Skills Radar</a>
+                <a href="#experience" class="hover:text-white transition-colors">Experience</a>
+                <a href="#projects" class="hover:text-white transition-colors">Projects & SaaS</a>
+                <a href="#proof-of-work" class="hover:text-amber-400 transition-colors flex items-center space-x-1">
+                    <i class="fas fa-trophy text-amber-400"></i>
+                    <span>Proof of Work</span>
+                </a>
+            </nav>
+
+            <div class="flex items-center space-x-3">
+                <button onclick="openAtsResumeModal()" class="bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold px-4 py-2 rounded-lg transition-all shadow-lg shadow-indigo-600/30 flex items-center space-x-2">
+                    <i class="fas fa-file-pdf"></i>
+                    <span>ATS Resume (PDF)</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Body -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow w-full space-y-16 no-print">
+
+        <!-- HERO SECTION -->
+        <section id="overview" class="pt-4">
+            <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-8 card-glow relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+                
+                <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+                    <div class="space-y-4 max-w-3xl">
+                        <div class="inline-flex items-center space-x-2 bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 text-xs px-3 py-1 rounded-full font-medium">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                            <span>Open for MLOps, GenAI & Systems Engineering Roles</span>
+                        </div>
+                        <h1 class="text-4xl sm:text-6xl font-black text-white tracking-tight">
+                            ABHISHEK VYAS
+                        </h1>
+                        <h2 class="text-xl sm:text-2xl font-bold gradient-text">
+                            AI/ML Engineer | GenAI & Agentic Systems | Python | MLOps & Reliability
+                        </h2>
+                        
+                        <p class="text-slate-300 text-sm leading-relaxed font-medium">
+                            Computer Science graduate and MLOps/AI Engineer with hands-on experience in Python, Multi-Agent Systems (CrewAI), RAG pipelines, LLM reliability testing, and backend architecture. Creator of <a href="https://baddevil512.github.io/agent-chaos-monkey/" target="_blank" class="text-indigo-400 underline font-semibold">Agentic Chaos Monkey</a> (open-source fault-injection middleware and AST vulnerability scanner for AI agents) and <strong class="text-cyan-400">Jarvis</strong> (local voice-enabled AI assistant). Proven track record in containerized ML deployments, automated QA/API security testing, and production agent hardening.
+                        </p>
+
+                        <!-- Contact Metadata Badges -->
+                        <div class="flex flex-wrap items-center gap-4 text-xs font-semibold text-slate-400 pt-2">
+                            <span class="flex items-center space-x-1.5 bg-slate-950 px-3 py-1.5 rounded-lg border border-slate-800 text-slate-300">
+                                <i class="fas fa-location-dot text-rose-400"></i>
+                                <span>Bhopal, MP, India</span>
+                            </span>
+                            <a href="tel:+918839018773" class="flex items-center space-x-1.5 bg-slate-950 px-3 py-1.5 rounded-lg border border-slate-800 text-slate-300 hover:text-white transition-colors">
+                                <i class="fas fa-phone text-emerald-400"></i>
+                                <span>+91 8839018773</span>
+                            </a>
+                            <a href="mailto:abhayvyass2001@gmail.com" class="flex items-center space-x-1.5 bg-slate-950 px-3 py-1.5 rounded-lg border border-slate-800 text-slate-300 hover:text-white transition-colors">
+                                <i class="fas fa-envelope text-indigo-400"></i>
+                                <span>abhayvyass2001@gmail.com</span>
+                            </a>
+                            <a href="https://github.com/Baddevil512" target="_blank" class="flex items-center space-x-1.5 bg-slate-950 px-3 py-1.5 rounded-lg border border-slate-800 text-slate-300 hover:text-white transition-colors">
+                                <i class="fab fa-github text-white"></i>
+                                <span>GitHub @Baddevil512</span>
+                            </a>
+                            <a href="https://baddevil512.github.io/agent-chaos-monkey/" target="_blank" class="flex items-center space-x-1.5 bg-indigo-950/40 text-indigo-300 border border-indigo-800 px-3 py-1.5 rounded-lg hover:text-white transition-colors">
+                                <i class="fas fa-bolt text-amber-400"></i>
+                                <span>Live Cloud Scanner</span>
+                            </a>
+                        </div>
+
+                        <!-- CTA Buttons -->
+                        <div class="flex flex-wrap items-center gap-3 pt-4">
+                            <button onclick="openAtsResumeModal()" class="bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold px-5 py-2.5 rounded-lg transition-all shadow-lg shadow-indigo-600/30 flex items-center space-x-2">
+                                <i class="fas fa-file-pdf"></i>
+                                <span>1-Click Printable ATS Resume (PDF)</span>
+                            </button>
+                            <a href="https://baddevil512.github.io/agent-chaos-monkey/" target="_blank" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold px-5 py-2.5 rounded-lg border border-slate-700 transition-all flex items-center space-x-2">
+                                <i class="fas fa-shield-halved text-emerald-400"></i>
+                                <span>Agentic Chaos Scanner</span>
+                            </a>
+                            <a href="#jarvis-hud" class="bg-cyan-950/40 border border-cyan-500/40 text-cyan-300 hover:bg-cyan-900/50 text-xs font-bold px-5 py-2.5 rounded-lg transition-all flex items-center space-x-2">
+                                <i class="fas fa-atom text-cyan-400"></i>
+                                <span>Launch Jarvis Sci-Fi HUD</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SPECIAL FEATURE: CINEMATIC JARVIS MOVIE-STYLE HOLOGRAPHIC HUD SHOWCASE -->
+        <section id="jarvis-hud" class="scroll-mt-20">
+            <div class="bg-slate-950 border border-cyan-500/40 rounded-2xl p-6 sm:p-8 cyan-glow relative overflow-hidden">
+                <div class="flex items-center justify-between border-b border-cyan-500/30 pb-4 mb-6">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-3 h-3 rounded-full bg-cyan-400 animate-ping"></div>
+                        <h2 class="text-xl font-extrabold text-white tracking-wider font-mono">
+                            J.A.R.V.I.S. // HOLOGRAPHIC COMMAND CENTER CORE
+                        </h2>
+                    </div>
+                    <span class="text-xs font-mono bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 px-3 py-1 rounded-full font-bold">
+                        STATUS: ACTIVE ONLINE
+                    </span>
+                </div>
+
+                <!-- HUD Grid Layout -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    
+                    <!-- Left HUD Telemetry Readouts -->
+                    <div class="lg:col-span-4 space-y-4 font-mono text-xs">
+                        <div class="bg-slate-900/90 border border-cyan-500/30 rounded-xl p-4 space-y-2">
+                            <div class="text-cyan-400 font-bold flex justify-between">
+                                <span>[SYSTEM TELEMETRY]</span>
+                                <span class="text-slate-500">v4.2.0</span>
+                            </div>
+                            <div class="text-slate-300 flex justify-between">
+                                <span>OLLAMA LLM:</span>
+                                <span class="text-emerald-400 font-bold">ONLINE (3.2B)</span>
+                            </div>
+                            <div class="text-slate-300 flex justify-between">
+                                <span>VECTOR RAG MEMORY:</span>
+                                <span class="text-cyan-400 font-bold">ACTIVE (FAISS)</span>
+                            </div>
+                            <div class="text-slate-300 flex justify-between">
+                                <span>VOICE RECOGNITION:</span>
+                                <span class="text-amber-400 font-bold">LISTENING...</span>
+                            </div>
+                            <div class="text-slate-300 flex justify-between">
+                                <span>OBSIDIAN VAULT:</span>
+                                <span class="text-indigo-400 font-bold">SYNCED (D:\obsidian)</span>
+                            </div>
+                        </div>
+
+                        <!-- Neural Node Switcher -->
+                        <div class="bg-slate-900/90 border border-slate-800 rounded-xl p-4 space-y-3">
+                            <div class="text-xs font-bold text-slate-400 uppercase tracking-wider">Neural Memory Nodes</div>
+                            <div class="grid grid-cols-2 gap-2">
+                                <button onclick="setHudMode('voice')" id="mode-voice" class="bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 text-[11px] p-2 rounded text-left hover:bg-cyan-500/30 transition-all font-semibold">
+                                    🎙️ Voice Pipeline
+                                </button>
+                                <button onclick="setHudMode('rag')" id="mode-rag" class="bg-slate-800 text-slate-400 border border-slate-700 text-[11px] p-2 rounded text-left hover:bg-slate-700 transition-all font-semibold">
+                                    🧠 RAG Memory
+                                </button>
+                                <button onclick="setHudMode('telemetry')" id="mode-telemetry" class="bg-slate-800 text-slate-400 border border-slate-700 text-[11px] p-2 rounded text-left hover:bg-slate-700 transition-all font-semibold">
+                                    ⚡ Latency & GPU
+                                </button>
+                                <button onclick="setHudMode('tools')" id="mode-tools" class="bg-slate-800 text-slate-400 border border-slate-700 text-[11px] p-2 rounded text-left hover:bg-slate-700 transition-all font-semibold">
+                                    🔧 Agent Tools
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Center ARC Reactor Hologram Visualizer -->
+                    <div class="lg:col-span-4 flex flex-col items-center justify-center relative py-6">
+                        <div class="w-64 h-64 sm:w-72 sm:h-72 relative flex items-center justify-center">
+                            <!-- Outer Counter-Rotating Ring -->
+                            <div class="absolute inset-0 rounded-full border-2 border-dashed border-cyan-400/40 arc-ring-outer"></div>
+                            <!-- Inner Rotating Ring -->
+                            <div class="absolute inset-3 rounded-full border-2 border-indigo-500/50 arc-ring-inner"></div>
+                            <!-- Third Pulse Ring -->
+                            <div class="absolute inset-8 rounded-full border border-amber-400/30 hud-pulse"></div>
+                            
+                            <!-- Arc Reactor Core Glow -->
+                            <div class="w-32 h-32 rounded-full bg-gradient-to-tr from-cyan-500 via-indigo-500 to-purple-500 flex flex-col items-center justify-center text-center shadow-2xl shadow-cyan-500/50 border-4 border-cyan-300">
+                                <span class="text-2xl font-black text-white">JARVIS</span>
+                                <span class="text-[10px] font-mono text-cyan-200 uppercase tracking-widest font-bold">CORE ONLINE</span>
+                            </div>
+                        </div>
+
+                        <!-- Animated Waveform Bars -->
+                        <div class="flex items-center space-x-1.5 mt-6 h-8">
+                            <div class="w-1.5 bg-cyan-400 rounded-full animate-bounce h-4"></div>
+                            <div class="w-1.5 bg-cyan-300 rounded-full animate-bounce h-7" style="animation-delay: 0.1s"></div>
+                            <div class="w-1.5 bg-indigo-400 rounded-full animate-bounce h-5" style="animation-delay: 0.2s"></div>
+                            <div class="w-1.5 bg-amber-400 rounded-full animate-bounce h-8" style="animation-delay: 0.3s"></div>
+                            <div class="w-1.5 bg-cyan-400 rounded-full animate-bounce h-6" style="animation-delay: 0.15s"></div>
+                            <div class="w-1.5 bg-indigo-500 rounded-full animate-bounce h-4" style="animation-delay: 0.25s"></div>
+                        </div>
+                    </div>
+
+                    <!-- Right Console Log Display -->
+                    <div class="lg:col-span-4 bg-slate-900/90 border border-slate-800 rounded-xl p-4 code-font text-xs space-y-2 h-64 overflow-y-auto">
+                        <div class="text-slate-500 flex justify-between border-b border-slate-800 pb-1">
+                            <span>// LIVE HUD INTERACTION LOG</span>
+                            <span class="text-cyan-400">SYS_OK</span>
+                        </div>
+                        <div id="hud-console-log" class="space-y-1 text-slate-300">
+                            <p class="text-emerald-400">[01:44:00] JARVIS Voice Engine initialized.</p>
+                            <p class="text-cyan-300">[01:44:02] Connected to Ollama local endpoint (llama3.2:3b).</p>
+                            <p class="text-indigo-300">[01:44:03] RAG Memory loaded: 14,200 vectors in ChromaDB.</p>
+                            <p class="text-amber-300">[01:44:05] Synced local Obsidian vault: d:\obsidian.</p>
+                            <p class="text-slate-400">[01:44:07] Listening for user speech commands...</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- COMPETENCY RADAR CHART & SKILL MATRIX -->
+        <section id="skills" class="scroll-mt-20">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <h2 class="text-3xl font-extrabold text-white">Competency Radar & Skill Matrix</h2>
+                <p class="text-slate-400 text-sm mt-2">Quantitative proficiency across AI engineering, MLOps reliability, backend languages, and security auditing.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <!-- Radar Chart -->
+                <div class="lg:col-span-6 bg-slate-900 border border-slate-800 rounded-2xl p-6 card-glow flex items-center justify-center">
+                    <div class="w-full max-w-md">
+                        <canvas id="skillsRadarChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- 4 Category Skill Proficiency Meters -->
+                <div class="lg:col-span-6 space-y-6">
+                    
+                    <!-- Category 1 -->
+                    <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 card-glow space-y-3">
+                        <h3 class="text-sm font-bold text-cyan-400 flex items-center space-x-2">
+                            <i class="fas fa-brain"></i>
+                            <span>AI & Agentic Systems</span>
+                        </h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-slate-950 border border-cyan-500/30 text-slate-200 text-xs px-2.5 py-1 rounded font-semibold">CrewAI</span>
+                            <span class="bg-slate-950 border border-cyan-500/30 text-slate-200 text-xs px-2.5 py-1 rounded font-semibold">Multi-Agent Workflows</span>
+                            <span class="bg-slate-950 border border-cyan-500/30 text-slate-200 text-xs px-2.5 py-1 rounded font-semibold">RAG Pipelines</span>
+                            <span class="bg-slate-950 border border-cyan-500/30 text-slate-200 text-xs px-2.5 py-1 rounded font-semibold">Ollama Local LLMs</span>
+                            <span class="bg-slate-950 border border-cyan-500/30 text-slate-200 text-xs px-2.5 py-1 rounded font-semibold">ChromaDB & FAISS</span>
+                            <span class="bg-slate-950 border border-cyan-500/30 text-slate-200 text-xs px-2.5 py-1 rounded font-semibold">Reinforcement Learning</span>
+                        </div>
+                    </div>
+
+                    <!-- Category 2 -->
+                    <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 card-glow space-y-3">
+                        <h3 class="text-sm font-bold text-indigo-400 flex items-center space-x-2">
+                            <i class="fas fa-server"></i>
+                            <span>MLOps & Reliability</span>
+                        </h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-slate-950 border border-indigo-500/30 text-slate-200 text-xs px-2.5 py-1 rounded font-semibold">Chaos Engineering</span>
+                            <span class="bg-slate-950 border border-indigo-500/30 text-slate-200 text-xs px-2.5 py-1 rounded font-semibold">AST Static Analysis</span>
+                            <span class="bg-slate-950 border border-indigo-500/30 text-slate-200 text-xs px-2.5 py-1 rounded font-semibold">Docker</span>
+                            <span class="bg-slate-950 border border-indigo-500/30 text-slate-200 text-xs px-2.5 py-1 rounded font-semibold">CI/CD Pipelines</span>
+                            <span class="bg-slate-950 border border-indigo-500/30 text-slate-200 text-xs px-2.5 py-1 rounded font-semibold">Pytest</span>
+                            <span class="bg-slate-950 border border-indigo-500/30 text-slate-200 text-xs px-2.5 py-1 rounded font-semibold">Selenium WebDriver</span>
+                        </div>
+                    </div>
+
+                    <!-- Category 3 -->
+                    <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 card-glow space-y-3">
+                        <h3 class="text-sm font-bold text-amber-400 flex items-center space-x-2">
+                            <i class="fas fa-code"></i>
+                            <span>Languages & Web Architectures</span>
+                        </h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-slate-950 border border-amber-500/30 text-slate-200 text-xs px-2.5 py-1 rounded font-semibold">Python</span>
+                            <span class="bg-slate-950 border border-amber-500/30 text-slate-200 text-xs px-2.5 py-1 rounded font-semibold">SQL</span>
+                            <span class="bg-slate-950 border border-amber-500/30 text-slate-200 text-xs px-2.5 py-1 rounded font-semibold">C/C++</span>
+                            <span class="bg-slate-950 border border-amber-500/30 text-slate-200 text-xs px-2.5 py-1 rounded font-semibold">JavaScript</span>
+                            <span class="bg-slate-950 border border-amber-500/30 text-slate-200 text-xs px-2.5 py-1 rounded font-semibold">FastAPI</span>
+                            <span class="bg-slate-950 border border-amber-500/30 text-slate-200 text-xs px-2.5 py-1 rounded font-semibold">Node.js / Express</span>
+                            <span class="bg-slate-950 border border-amber-500/30 text-slate-200 text-xs px-2.5 py-1 rounded font-semibold">React & Vue.js</span>
+                            <span class="bg-slate-950 border border-amber-500/30 text-slate-200 text-xs px-2.5 py-1 rounded font-semibold">WebSockets</span>
+                        </div>
+                    </div>
+
+                    <!-- Category 4 -->
+                    <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 card-glow space-y-3">
+                        <h3 class="text-sm font-bold text-rose-400 flex items-center space-x-2">
+                            <i class="fas fa-shield-virus"></i>
+                            <span>Security & QA Auditing</span>
+                        </h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-slate-950 border border-rose-500/30 text-slate-200 text-xs px-2.5 py-1 rounded font-semibold">Certified Ethical Hacker (CEH)</span>
+                            <span class="bg-slate-950 border border-rose-500/30 text-slate-200 text-xs px-2.5 py-1 rounded font-semibold">OWASP Top 10 API Security</span>
+                            <span class="bg-slate-950 border border-rose-500/30 text-slate-200 text-xs px-2.5 py-1 rounded font-semibold">Prompt-Injection Auditing</span>
+                            <span class="bg-slate-950 border border-rose-500/30 text-slate-200 text-xs px-2.5 py-1 rounded font-semibold">Token-Leak Auditing</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CAREER, EDUCATION & CERTIFICATIONS TIMELINE -->
+        <section id="experience" class="scroll-mt-20">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <h2 class="text-3xl font-extrabold text-white">Experience & Education Timeline</h2>
+                <p class="text-slate-400 text-sm mt-2">Professional track record in MLOps, AI application engineering, and academic background.</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto space-y-8">
+                
+                <!-- Experience Card -->
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-8 card-glow relative">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-4 mb-4">
+                        <div>
+                            <span class="text-xs font-bold text-indigo-400 uppercase tracking-wider">Professional Experience</span>
+                            <h3 class="text-xl font-bold text-white">MLOps & AI Engineer</h3>
+                            <h4 class="text-sm font-semibold text-slate-300">Nanostack Pvt Ltd, Bhopal</h4>
+                        </div>
+                        <span class="bg-indigo-500/10 text-indigo-300 border border-indigo-500/30 text-xs px-3 py-1 rounded-full font-mono font-bold">
+                            Jan 2025 – Jan 2026
+                        </span>
+                    </div>
+
+                    <ul class="space-y-3 text-sm text-slate-300 list-disc list-inside font-medium leading-relaxed">
+                        <li>Engineered Python-based AI/ML applications, local LLM inference pipelines, and Retrieval-Augmented Generation (RAG) workflows for automated text processing.</li>
+                        <li>Containerized ML services with Docker and maintained CI/CD-based automated testing and deployment pipelines.</li>
+                        <li>Developed end-to-end automated API and web-interface test suites using Python, Pytest, and Selenium WebDriver.</li>
+                        <li>Executed model API integration, endpoint stress testing, and security validation covering OWASP API risks and prompt-injection vulnerabilities.</li>
+                    </ul>
+                </div>
+
+                <!-- Education & Certifications Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    
+                    <!-- Education Card -->
+                    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 card-glow space-y-4">
+                        <h3 class="text-lg font-bold text-white flex items-center space-x-2">
+                            <i class="fas fa-graduation-cap text-cyan-400"></i>
+                            <span>Education Timeline</span>
+                        </h3>
+
+                        <div class="space-y-4 border-l-2 border-cyan-500/30 pl-4">
+                            <div>
+                                <div class="text-xs font-mono text-cyan-400 font-bold">2022 – 2025</div>
+                                <h4 class="text-sm font-bold text-white">B.Tech in Computer Science</h4>
+                                <p class="text-xs text-slate-400">Sage University, Bhopal</p>
+                            </div>
+
+                            <div>
+                                <div class="text-xs font-mono text-cyan-400 font-bold">2018 – 2021</div>
+                                <h4 class="text-sm font-bold text-white">Diploma in Computer Science</h4>
+                                <p class="text-xs text-slate-400">People's University, Bhopal</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Certifications Card -->
+                    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 card-glow space-y-4">
+                        <h3 class="text-lg font-bold text-white flex items-center space-x-2">
+                            <i class="fas fa-certificate text-amber-400"></i>
+                            <span>Verified Certifications</span>
+                        </h3>
+
+                        <div class="space-y-3">
+                            <div class="bg-slate-950 border border-slate-800 p-3 rounded-lg flex items-center space-x-3">
+                                <span class="text-xl">🛡️</span>
+                                <div>
+                                    <h4 class="text-xs font-bold text-white">Certified Ethical Hacker (CEH)</h4>
+                                    <p class="text-[11px] text-slate-400">EC-Council Certification</p>
+                                </div>
+                            </div>
+                            <div class="bg-slate-950 border border-slate-800 p-3 rounded-lg flex items-center space-x-3">
+                                <span class="text-xl">🤖</span>
+                                <div>
+                                    <h4 class="text-xs font-bold text-white">Machine Learning with Python</h4>
+                                    <p class="text-[11px] text-slate-400">Professional Certificate</p>
+                                </div>
+                            </div>
+                            <div class="bg-slate-950 border border-slate-800 p-3 rounded-lg flex items-center space-x-3">
+                                <span class="text-xl">📊</span>
+                                <div>
+                                    <h4 class="text-xs font-bold text-white">Data Analysis with Python</h4>
+                                    <p class="text-[11px] text-slate-400">Data Science & Analytics</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- KEY PROJECTS & MONETIZED CLOUD SAAS SHOWROOM -->
+        <section id="projects" class="scroll-mt-20">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <h2 class="text-3xl font-extrabold text-white">Featured Projects & Monetized Cloud SaaS</h2>
+                <p class="text-slate-400 text-sm mt-2">Production AI architectures, open-source reliability tooling, and cloud automation SaaS actors.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- Project 1: Jarvis -->
+                <div class="bg-slate-900 border border-cyan-500/30 rounded-2xl p-6 card-glow flex flex-col justify-between space-y-4">
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-start">
+                            <span class="text-xs font-mono bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 px-2.5 py-0.5 rounded font-bold">LOCAL AI ASSISTANT</span>
+                            <span class="text-xs text-slate-400 font-mono">React, Vite, Node, Ollama</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Jarvis — Local AI Assistant</h3>
+                        <p class="text-sm text-slate-300 leading-relaxed font-medium">
+                            Privacy-focused local AI assistant featuring an Iron Man inspired Sci-Fi React/Vite HUD interface and Node.js/Express backend for autonomous task execution. Persistent RAG-based semantic memory using vector search over developer conversation logs and local Markdown/Obsidian notes. Local Ollama LLMs with automated fallback handling, voice-command processing, and desktop telemetry.
+                        </p>
+                    </div>
+                    <div class="pt-2 flex items-center space-x-3">
+                        <a href="#jarvis-hud" class="bg-cyan-950 text-cyan-300 border border-cyan-500/40 hover:bg-cyan-900 text-xs font-bold px-4 py-2 rounded-lg transition-all flex items-center space-x-1.5">
+                            <i class="fas fa-atom"></i>
+                            <span>Launch Live HUD Demo</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 2: Agentic Chaos Monkey -->
+                <div class="bg-slate-900 border border-indigo-500/30 rounded-2xl p-6 card-glow flex flex-col justify-between space-y-4">
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-start">
+                            <span class="text-xs font-mono bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 px-2.5 py-0.5 rounded font-bold">OPEN-SOURCE QA & AST SCANNER</span>
+                            <span class="text-xs text-slate-400 font-mono">Python, CrewAI, AST, Pytest</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Agentic Chaos Monkey</h3>
+                        <p class="text-sm text-slate-300 leading-relaxed font-medium">
+                            Open-source fault-injection and telemetry middleware simulating upstream API 502s, latency spikes, and corrupted JSON on LLM tool calls. Automated Python AST static vulnerability scanner integrated with GitHub API to detect unbounded multi-agent delegation loops (`max_iter`) and unhandled tool exceptions. Automated Resilience Scorecard quantifying retry multipliers; audited 50+ real-world repositories and caught confirmed production bug `#48` in `AgentSafeLabs/safelabs-eval` (416+ ⭐).
+                        </p>
+                    </div>
+                    <div class="pt-2 flex items-center space-x-3">
+                        <a href="https://baddevil512.github.io/agent-chaos-monkey/" target="_blank" class="bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold px-4 py-2 rounded-lg transition-all flex items-center space-x-1.5">
+                            <i class="fas fa-external-link-alt"></i>
+                            <span>Live Cloud Scanner ↗</span>
+                        </a>
+                        <a href="https://github.com/Baddevil512/agent-chaos-monkey" target="_blank" class="bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-bold px-4 py-2 rounded-lg border border-slate-700 transition-all flex items-center space-x-1.5">
+                            <i class="fab fa-github"></i>
+                            <span>GitHub Repo</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 3: Bitcoin Trader AI -->
+                <div class="bg-slate-900 border border-amber-500/30 rounded-2xl p-6 card-glow flex flex-col justify-between space-y-4">
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-start">
+                            <span class="text-xs font-mono bg-amber-500/20 text-amber-300 border border-amber-500/30 px-2.5 py-0.5 rounded font-bold">ALGORITHMIC TRADING</span>
+                            <span class="text-xs text-slate-400 font-mono">Python, FastAPI, Vue.js, WebSockets</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Bitcoin Trader AI</h3>
+                        <p class="text-sm text-slate-300 leading-relaxed font-medium">
+                            Real-time full-stack algorithmic trading platform with a reactive Vue.js analytics dashboard. Integrated Binance WebSockets for low-latency market streaming alongside a multi-indicator decision engine and Reinforcement Learning feedback loop.
+                        </p>
+                    </div>
+                    <!-- Live Ticker Animation -->
+                    <div class="bg-slate-950 p-3 rounded-lg border border-slate-800 flex items-center justify-between text-xs font-mono">
+                        <span class="text-amber-400 font-bold">BTC/USDT TICKER</span>
+                        <span class="text-emerald-400 animate-pulse font-bold">$67,420.50 ▲ +3.4%</span>
+                    </div>
+                </div>
+
+                <!-- Project 4: Cloud SaaS Ecosystem -->
+                <div class="bg-slate-900 border border-emerald-500/30 rounded-2xl p-6 card-glow flex flex-col justify-between space-y-4">
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-start">
+                            <span class="text-xs font-mono bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 px-2.5 py-0.5 rounded font-bold">MONETIZED SAAS ACTORS</span>
+                            <span class="text-xs text-slate-400 font-mono">Async Python, HTTPX, Apify</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Cloud Data & Tech Stack SaaS Actors</h3>
+                        <p class="text-sm text-slate-300 leading-relaxed font-medium">
+                            Production cloud automation SaaS Actors deployed on Apify Store:
+                            <br>• <strong>Startup Jobs & Hiring Signals Scraper (Greenhouse & Lever ATS)</strong>
+                            <br>• <strong>B2B Lead & Website Tech Stack Enricher</strong>
+                            <br>Built with high-speed async Python + HTTPX extracting real-time job postings, tech stack footprints, and contact channels for Clay and n8n pipelines.
+                        </p>
+                    </div>
+                    <div class="pt-2 flex items-center space-x-3">
+                        <a href="https://apify.com/store" target="_blank" class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold px-4 py-2 rounded-lg transition-all flex items-center space-x-1.5">
+                            <i class="fas fa-store"></i>
+                            <span>View on Apify Store ↗</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- LIVE ACHIEVEMENTS & PROOF-OF-WORK FEED -->
+        <section id="proof-of-work" class="scroll-mt-20">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <h2 class="text-3xl font-extrabold text-white flex items-center justify-center space-x-2">
+                    <i class="fas fa-trophy text-amber-400"></i>
+                    <span>Live Achievements & Proof-of-Work Feed</span>
+                </h2>
+                <p class="text-slate-400 text-sm mt-2">Auto-synced engineering milestones, confirmed bug catches, and live cloud releases.</p>
+            </div>
+
+            <!-- Dynamic Achievements Feed Container -->
+            <div id="portfolio-achievements-container" class="max-w-4xl mx-auto space-y-4">
+                <!-- Loaded dynamically via achievements.json -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 py-6 text-center text-xs text-slate-500 no-print">
+        <p>© 2026 Abhishek Vyas — AI/ML Engineer & Systems Architect. All rights reserved.</p>
+    </footer>
+
+    <!-- ATS RESUME PRINT MODAL / VIEW (Recruiter Ready) -->
+    <div id="ats-resume-modal" class="hidden fixed inset-0 z-50 bg-slate-950/90 backdrop-blur overflow-y-auto p-4 sm:p-8 flex justify-center no-print">
+        <div class="bg-white text-black max-w-4xl w-full p-8 sm:p-12 rounded-xl shadow-2xl space-y-6 text-sm font-sans relative">
+            <button onclick="closeAtsResumeModal()" class="absolute top-4 right-4 bg-slate-200 hover:bg-slate-300 text-black px-3 py-1.5 rounded font-bold text-xs">
+                ✕ Close Preview
+            </button>
+            
+            <div class="flex justify-between items-center border-b pb-4">
+                <h2 class="text-xs font-bold uppercase tracking-wider text-slate-500">1-Page ATS Printable Resume Preview</h2>
+                <button onclick="window.print()" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-4 py-2 rounded text-xs flex items-center space-x-2">
+                    <i class="fas fa-print"></i>
+                    <span>Print / Save as PDF</span>
+                </button>
+            </div>
+
+            <!-- Printable Document Contents -->
+            <div class="space-y-4">
+                <div class="text-center border-b pb-4">
+                    <h1 class="text-2xl font-black tracking-wide">ABHISHEK VYAS</h1>
+                    <p class="text-xs font-bold text-slate-700 mt-1">AI/ML Engineer | GenAI & Agentic Systems | Python | MLOps & Reliability</p>
+                    <p class="text-xs text-slate-600 mt-1">Bhopal, MP, India | +91 8839018773 | abhayvyass2001@gmail.com | github.com/Baddevil512</p>
+                </div>
+
+                <div>
+                    <h3 class="text-xs font-bold uppercase tracking-wider text-slate-800 border-b pb-1 mb-2">Professional Summary</h3>
+                    <p class="text-xs text-slate-700 leading-relaxed">
+                        Computer Science graduate and MLOps/AI Engineer with hands-on experience in Python, Multi-Agent Systems (CrewAI), RAG pipelines, LLM reliability testing, and backend architecture. Creator of Agentic Chaos Monkey (open-source fault-injection middleware and AST vulnerability scanner for AI agents) and Jarvis (local voice-enabled AI assistant). Proven track record in containerized ML deployments, automated QA/API security testing, and production agent hardening.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="text-xs font-bold uppercase tracking-wider text-slate-800 border-b pb-1 mb-2">Technical Skills</h3>
+                    <div class="grid grid-cols-2 gap-2 text-xs text-slate-700">
+                        <p><strong>AI & Agentic Systems:</strong> CrewAI, Multi-Agent Workflows, RAG, Ollama, Vector Search (ChromaDB, FAISS), RL</p>
+                        <p><strong>MLOps & Reliability:</strong> Chaos Engineering, AST Static Analysis, Docker, Git, CI/CD, Pytest, Selenium</p>
+                        <p><strong>Languages & Frameworks:</strong> Python, SQL, C/C++, JavaScript, FastAPI, Node.js, Express, React, Vue.js, REST APIs, WebSockets</p>
+                        <p><strong>Security & QA:</strong> Certified Ethical Hacker (CEH), OWASP Top 10 API Security, Prompt-Injection & Token-Leak Auditing</p>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-xs font-bold uppercase tracking-wider text-slate-800 border-b pb-1 mb-2">Professional Experience</h3>
+                    <div>
+                        <div class="flex justify-between font-bold text-xs text-slate-800">
+                            <span>MLOps & AI Engineer — Nanostack Pvt Ltd, Bhopal</span>
+                            <span>Jan 2025 – Jan 2026</span>
+                        </div>
+                        <ul class="list-disc list-inside text-xs text-slate-700 space-y-1 mt-1">
+                            <li>Engineered Python-based AI/ML applications, local LLM inference pipelines, and RAG workflows for automated text processing.</li>
+                            <li>Containerized ML services with Docker and maintained CI/CD-based automated testing and deployment pipelines.</li>
+                            <li>Developed end-to-end automated API and web-interface test suites using Python, Pytest, and Selenium WebDriver.</li>
+                            <li>Executed model API integration, endpoint stress testing, and security validation covering OWASP API risks and prompt-injection vulnerabilities.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-xs font-bold uppercase tracking-wider text-slate-800 border-b pb-1 mb-2">Key Projects & Shipped Systems</h3>
+                    <div class="space-y-2 text-xs text-slate-700">
+                        <p><strong>Agentic Chaos Monkey:</strong> Open-source fault-injection & AST scanner suite for CrewAI. Audited 50+ repos, caught confirmed bug #48 in AgentSafeLabs/safelabs-eval (416+ ⭐). (https://baddevil512.github.io/agent-chaos-monkey/)</p>
+                        <p><strong>Jarvis Local AI Assistant:</strong> Voice-enabled local assistant with RAG semantic memory over Obsidian notes & Ollama local LLMs.</p>
+                        <p><strong>Bitcoin Trader AI:</strong> Real-time algorithmic trading platform with Binance WebSockets & Vue.js analytics dashboard.</p>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-xs font-bold uppercase tracking-wider text-slate-800 border-b pb-1 mb-2">Education & Certifications</h3>
+                    <div class="text-xs text-slate-700 space-y-1">
+                        <p><strong>B.Tech in Computer Science:</strong> Sage University, Bhopal (2022 – 2025)</p>
+                        <p><strong>Diploma in Computer Science:</strong> People's University, Bhopal (2018 – 2021)</p>
+                        <p><strong>Certifications:</strong> Certified Ethical Hacker (CEH - EC-Council), Machine Learning with Python, Data Analysis with Python</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Hidden Print Only Container -->
+    <div class="print-only p-8 text-black space-y-4 text-xs font-sans">
+        <div class="text-center border-b pb-4">
+            <h1 class="text-2xl font-black">ABHISHEK VYAS</h1>
+            <p class="font-bold">AI/ML Engineer | GenAI & Agentic Systems | Python | MLOps & Reliability</p>
+            <p>Bhopal, MP, India | +91 8839018773 | abhayvyass2001@gmail.com | github.com/Baddevil512</p>
+        </div>
+        <div>
+            <h3 class="font-bold uppercase border-b mb-1">Professional Summary</h3>
+            <p>Computer Science graduate and MLOps/AI Engineer with hands-on experience in Python, Multi-Agent Systems (CrewAI), RAG pipelines, LLM reliability testing, and backend architecture. Creator of Agentic Chaos Monkey and Jarvis local AI assistant.</p>
+        </div>
+        <div>
+            <h3 class="font-bold uppercase border-b mb-1">Experience</h3>
+            <p><strong>MLOps & AI Engineer — Nanostack Pvt Ltd, Bhopal (Jan 2025 – Jan 2026)</strong></p>
+            <p>Engineered Python AI/ML applications, Docker ML deployments, Pytest/Selenium automated API testing, and OWASP model security audits.</p>
+        </div>
+        <div>
+            <h3 class="font-bold uppercase border-b mb-1">Education</h3>
+            <p>B.Tech in CS — Sage University (2022-2025) | Diploma in CS — People's University (2018-2021)</p>
+        </div>
+    </div>
+
+    <!-- JavaScript Controls -->
+    <script>
+        function openAtsResumeModal() {
+            document.getElementById('ats-resume-modal').classList.remove('hidden');
+        }
+
+        function closeAtsResumeModal() {
+            document.getElementById('ats-resume-modal').classList.add('hidden');
+        }
+
+        function setHudMode(mode) {
+            const modes = ['voice', 'rag', 'telemetry', 'tools'];
+            modes.forEach(m => {
+                const btn = document.getElementById(`mode-${m}`);
+                if (btn) {
+                    if (m === mode) {
+                        btn.className = "bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 text-[11px] p-2 rounded text-left font-semibold";
+                    } else {
+                        btn.className = "bg-slate-800 text-slate-400 border border-slate-700 text-[11px] p-2 rounded text-left font-semibold";
+                    }
+                }
+            });
+
+            const consoleLog = document.getElementById('hud-console-log');
+            const now = new Date().toLocaleTimeString();
+            if (mode === 'voice') {
+                consoleLog.innerHTML += `<p class="text-cyan-300">[${now}] Mode: Voice Pipeline. Microphone input listening for wake-word "JARVIS"...</p>`;
+            } else if (mode === 'rag') {
+                consoleLog.innerHTML += `<p class="text-indigo-300">[${now}] Mode: RAG Memory Query. Querying FAISS index over obsidian vault notes...</p>`;
+            } else if (mode === 'telemetry') {
+                consoleLog.innerHTML += `<p class="text-amber-300">[${now}] Mode: System Telemetry. VRAM usage 3.4GB / 8.0GB | Inference 48 tokens/sec.</p>`;
+            } else {
+                consoleLog.innerHTML += `<p class="text-emerald-300">[${now}] Mode: Agent Tools. Loaded 12 custom execution functions.</p>`;
+            }
+            consoleLog.scrollTop = consoleLog.scrollHeight;
+        }
+
+        // Initialize Radar Chart
+        document.addEventListener('DOMContentLoaded', () => {
+            const ctx = document.getElementById('skillsRadarChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: ['AI & Agentic Systems', 'MLOps & Reliability', 'Languages & Backend', 'Security & QA Auditing'],
+                    datasets: [{
+                        label: 'Competency Rating (%)',
+                        data: [95, 90, 92, 88],
+                        backgroundColor: 'rgba(56, 189, 248, 0.25)',
+                        borderColor: '#38bdf8',
+                        pointBackgroundColor: '#818cf8',
+                        pointBorderColor: '#ffffff',
+                        pointHoverBackgroundColor: '#ffffff',
+                        pointHoverBorderColor: '#38bdf8'
+                    }]
+                },
+                options: {
+                    scales: {
+                        r: {
+                            angleLines: { color: 'rgba(255, 255, 255, 0.1)' },
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            pointLabels: { color: '#f8fafc', font: { size: 11, weight: 'bold' } },
+                            ticks: { display: false, min: 0, max: 100 }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false }
+                    }
+                }
+            });
+
+            loadPortfolioAchievements();
+        });
+
+        async function loadPortfolioAchievements() {
+            const container = document.getElementById('portfolio-achievements-container');
+            if (!container) return;
+
+            try {
+                const resp = await fetch('achievements.json');
+                if (resp.ok) {
+                    const data = await resp.json();
+                    renderPortfolioFeed(data.achievements || []);
+                } else {
+                    renderPortfolioFeed(getFallbackAchievements());
+                }
+            } catch (e) {
+                renderPortfolioFeed(getFallbackAchievements());
+            }
+        }
+
+        function getFallbackAchievements() {
+            return [
+                {
+                    "title": "Confirmed Vulnerability Catch in AgentSafeLabs/safelabs-eval (416+ ⭐)",
+                    "category": "CONFIRMED BUG CATCH",
+                    "description": "Identified an unhandled JSON parsing fault trap (validate.py:308) via static AST analysis. Confirmed and patched by core maintainer in Issue #48.",
+                    "proof_link": "https://github.com/AgentSafeLabs/safelabs-eval/issues/48",
+                    "date": "2026-10-03"
+                },
+                {
+                    "title": "Startup Jobs & Hiring Signals Scraper (Greenhouse & Lever ATS)",
+                    "category": "CLOUD SAAS ACTOR",
+                    "description": "High-speed async Python + HTTPX cloud scraper extracting real-time startup job postings, tech stack signals, and remote indicators directly from ATS REST APIs.",
+                    "proof_link": "https://console.apify.com/actors/70YCuZT64AsbAl71t",
+                    "date": "2026-10-03"
+                },
+                {
+                    "title": "B2B Lead & Website Tech Stack Enricher",
+                    "category": "CLOUD SAAS ACTOR",
+                    "description": "Automated B2B domain enrichment Actor extracting verified contact channels and technology footprints for Clay and n8n pipelines.",
+                    "proof_link": "https://apify.com/store",
+                    "date": "2026-10-02"
+                }
+            ];
+        }
+
+        function renderPortfolioFeed(items) {
+            const container = document.getElementById('portfolio-achievements-container');
+            container.innerHTML = '';
+
+            items.forEach(item => {
+                let badgeClass = 'bg-indigo-500/20 text-indigo-400 border-indigo-500/30';
+                if (item.category === 'CONFIRMED BUG CATCH') {
+                    badgeClass = 'bg-rose-500/20 text-rose-400 border-rose-500/30';
+                } else if (item.category === 'CLOUD SAAS ACTOR') {
+                    badgeClass = 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30';
+                }
+
+                const card = document.createElement('div');
+                card.className = 'bg-slate-900 border border-slate-800 rounded-xl p-5 card-glow';
+                card.innerHTML = `
+                    <div class="flex items-center justify-between gap-2 mb-2">
+                        <div class="flex items-center space-x-2">
+                            <span class="text-xs font-bold border px-2.5 py-0.5 rounded ${badgeClass}">${item.category}</span>
+                            <span class="text-xs text-slate-500 font-mono">${item.date}</span>
+                        </div>
+                        <a href="${item.proof_link}" target="_blank" class="text-xs text-indigo-400 hover:text-indigo-300 font-bold flex items-center space-x-1">
+                            <span>Verify Proof</span>
+                            <i class="fas fa-external-link-alt text-[10px]"></i>
+                        </a>
+                    </div>
+                    <h3 class="text-base font-bold text-white mb-1">${escapeHtml(item.title)}</h3>
+                    <p class="text-xs text-slate-300 leading-relaxed font-medium">${escapeHtml(item.description)}</p>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function escapeHtml(text) {
+            return text ? text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") : '';
+        }
+    </script>
+</body>
+</html>

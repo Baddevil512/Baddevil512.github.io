@@ -1176,7 +1176,7 @@
             if (!container) return;
 
             try {
-                const resp = await fetch('achievements.json');
+                const resp = await fetch(`./achievements.json?t=${Date.now()}`);
                 if (resp.ok) {
                     const data = await resp.json();
                     renderPortfolioFeed(data.achievements || []);
@@ -1191,6 +1191,31 @@
         function getFallbackAchievements() {
             return [
                 {
+                    "id": "ach-007",
+                    "title": "Opened Architecture PRs on academic-commercialization-agent (771⭐) & agents-shipgate (#967)",
+                    "category": "ENGINEERING MILESTONE",
+                    "description": "Collaborated with maintainers on shuxiachai/academic-commercialization-agent (#191) to implement wall-clock execution deadlines, and ThreeMoonsLab/agents-shipgate (#917 / PR #967) to ship CrewAI fault-isolation patterns & offline test suites.",
+                    "proof_link": "https://github.com/ThreeMoonsLab/agents-shipgate/pull/967",
+                    "date": "2026-10-05"
+                },
+                {
+                    "id": "ach-006",
+                    "title": "Root Portfolio Website & ATS Resume Release",
+                    "category": "ENGINEERING MILESTONE",
+                    "description": "Built and deployed standalone interactive AI Systems Architect portfolio & ATS printable resume.",
+                    "proof_link": "https://baddevil512.github.io/",
+                    "date": "2026-10-03"
+                },
+                {
+                    "id": "ach-005",
+                    "title": "Zero-False-Positive AST Engine Release",
+                    "category": "SECURITY ENGINE",
+                    "description": "Successfully shipped zero-false-positive AST scanning rules tracking httpx.AsyncClient timeouts and test path filters.",
+                    "proof_link": "https://github.com/baddevil512/agent-chaos-monkey",
+                    "date": "2026-10-03"
+                },
+                {
+                    "id": "ach-001",
                     "title": "Confirmed Vulnerability Catch in AgentSafeLabs/safelabs-eval (416+ ⭐)",
                     "category": "CONFIRMED BUG CATCH",
                     "description": "Identified an unhandled JSON parsing fault trap (validate.py:308) via static AST analysis. Confirmed and patched by core maintainer in Issue #48.",
@@ -1198,6 +1223,7 @@
                     "date": "2026-10-03"
                 },
                 {
+                    "id": "ach-002",
                     "title": "Startup Jobs & Hiring Signals Scraper (Greenhouse & Lever ATS)",
                     "category": "CLOUD SAAS ACTOR",
                     "description": "High-speed async Python + HTTPX cloud scraper extracting real-time startup job postings, tech stack signals, and remote indicators directly from ATS REST APIs.",
@@ -1205,11 +1231,20 @@
                     "date": "2026-10-03"
                 },
                 {
+                    "id": "ach-003",
                     "title": "B2B Lead & Website Tech Stack Enricher",
                     "category": "CLOUD SAAS ACTOR",
                     "description": "Automated B2B domain enrichment Actor extracting verified contact channels and technology footprints for Clay and n8n pipelines.",
                     "proof_link": "https://apify.com/store",
                     "date": "2026-10-02"
+                },
+                {
+                    "id": "ach-004",
+                    "title": "Agentic Chaos Monkey — Zero-False-Positive AST Scope Tracker",
+                    "category": "SECURITY ENGINE",
+                    "description": "Upgraded static AST engine to track client-level timeouts (httpx.AsyncClient(timeout=...) and asyncio.wait_for) and filter benchmark/test files.",
+                    "proof_link": "https://github.com/baddevil512/agent-chaos-monkey",
+                    "date": "2026-10-03"
                 }
             ];
         }
@@ -1224,6 +1259,10 @@
                     badgeClass = 'bg-rose-500/20 text-rose-400 border-rose-500/30';
                 } else if (item.category === 'CLOUD SAAS ACTOR') {
                     badgeClass = 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30';
+                } else if (item.category === 'ENGINEERING MILESTONE') {
+                    badgeClass = 'bg-cyan-500/20 text-cyan-400 border-cyan-500/30';
+                } else if (item.category === 'SECURITY ENGINE') {
+                    badgeClass = 'bg-amber-500/20 text-amber-400 border-amber-500/30';
                 }
 
                 const card = document.createElement('div');
@@ -1231,12 +1270,11 @@
                 card.innerHTML = `
                     <div class="flex items-center justify-between gap-2 mb-2">
                         <div class="flex items-center space-x-2">
-                            <span class="text-xs font-bold border px-2.5 py-0.5 rounded ${badgeClass}">${item.category}</span>
-                            <span class="text-xs text-slate-500 font-mono">${item.date}</span>
+                            <span class="text-xs font-bold border px-2.5 py-0.5 rounded ${badgeClass}">${escapeHtml(item.category)}</span>
+                            <span class="text-xs text-slate-500 font-mono">${escapeHtml(item.date)}</span>
                         </div>
-                        <a href="${item.proof_link}" target="_blank" class="text-xs text-indigo-400 hover:text-indigo-300 font-bold flex items-center space-x-1">
-                            <span>Verify Proof</span>
-                            <i class="fas fa-external-link-alt text-[10px]"></i>
+                        <a href="${escapeHtml(item.proof_link)}" target="_blank" class="text-xs text-indigo-400 hover:text-indigo-300 font-bold flex items-center space-x-1">
+                            <span>Verify Proof ↗</span>
                         </a>
                     </div>
                     <h3 class="text-base font-bold text-white mb-1">${escapeHtml(item.title)}</h3>

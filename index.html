@@ -1288,6 +1288,14 @@
         function getFallbackAchievements() {
             return [
                 {
+                    "id": "ach-010",
+                    "title": "Autonomous DNS Zone Transfer Defense: HMAC-SHA256 TSIG & Split-Horizon Router",
+                    "category": "SECURITY ARCHITECTURE",
+                    "description": "Engineered an end-to-end DNS Zone Transfer defense module mitigating internal network topology mapping leaks (Issue #806). Implemented cryptographic TSIG verification (HMAC-SHA256, replay protection windows), trusted slave access control, and RFC 1918 Split-Horizon DNS isolation with 100% pytest test coverage.",
+                    "proof_link": "https://github.com/baddevil512/ai-research",
+                    "date": "2026-10-21"
+                },
+                {
                     "id": "ach-009",
                     "title": "Merged PR #200 in academic-commercialization-agent (771⭐): Thread Ownership & Shared Runtime Isolation",
                     "category": "ENGINEERING MILESTONE",
@@ -1377,6 +1385,8 @@
                     badgeClass = 'bg-cyan-500/20 text-cyan-400 border-cyan-500/30';
                 } else if (item.category === 'SECURITY ENGINE') {
                     badgeClass = 'bg-amber-500/20 text-amber-400 border-amber-500/30';
+                } else if (item.category === 'SECURITY ARCHITECTURE') {
+                    badgeClass = 'bg-purple-500/20 text-purple-400 border-purple-500/30';
                 }
 
                 const card = document.createElement('div');

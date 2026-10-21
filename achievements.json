@@ -6,6 +6,22 @@
   },
   "achievements": [
     {
+      "id": "ach-009",
+      "title": "Merged PR #200 in academic-commercialization-agent (771\u2b50): Thread Ownership & Shared Runtime Isolation",
+      "category": "ENGINEERING MILESTONE",
+      "description": "Resolved Issue #197 by overhauling cell-owned thread boundary tracking in opt-in ablation deadline mode. Isolated explicit worker and callback threads from persistent CrewAI EventBus loops, preventing false timeouts while preserving batch-halting guarantees.",
+      "proof_link": "https://github.com/shuxiachai/academic-commercialization-agent/pull/200",
+      "date": "2026-10-21"
+    },
+    {
+      "id": "ach-008",
+      "title": "Merged PR #192 in academic-commercialization-agent (771\u2b50): Bounded Execution Deadlines & Exit Boundary",
+      "category": "ENGINEERING MILESTONE",
+      "description": "Engineered wall-clock execution deadline harness to guard against runaway paid LLM evaluations. Built 2-stage thread cleanup (cooperative cancellation + bytecode interrupt), Pydantic Crew compatibility, honest time-incomplete usage auditing, and offline regressions.",
+      "proof_link": "https://github.com/shuxiachai/academic-commercialization-agent/pull/192",
+      "date": "2026-10-15"
+    },
+    {
       "id": "ach-007",
       "title": "Opened Architecture PRs on academic-commercialization-agent (771\u2b50) & agents-shipgate (#967)",
       "category": "ENGINEERING MILESTONE",

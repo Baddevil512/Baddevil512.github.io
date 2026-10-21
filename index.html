@@ -581,6 +581,34 @@
                     <div class="flex items-center justify-between gap-2 mb-2">
                         <div class="flex items-center space-x-2">
                             <span class="text-xs font-bold border px-2.5 py-0.5 rounded bg-cyan-500/20 text-cyan-400 border-cyan-500/30">ENGINEERING MILESTONE</span>
+                            <span class="text-xs text-slate-500 font-mono">2026-10-21</span>
+                        </div>
+                        <a href="https://github.com/shuxiachai/academic-commercialization-agent/pull/200" target="_blank" class="text-xs text-indigo-400 hover:text-indigo-300 font-bold flex items-center space-x-1">
+                            <span>Verify Proof ↗</span>
+                        </a>
+                    </div>
+                    <h3 class="text-base font-bold text-white mb-1">Merged PR #200 in academic-commercialization-agent (771⭐): Thread Ownership &amp; Shared Runtime Isolation</h3>
+                    <p class="text-xs text-slate-300 leading-relaxed font-medium">Resolved Issue #197 by overhauling cell-owned thread boundary tracking in opt-in ablation deadline mode. Isolated explicit worker and callback threads from persistent CrewAI EventBus loops, preventing false timeouts while preserving batch-halting guarantees.</p>
+                </div>
+
+                <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 card-glow">
+                    <div class="flex items-center justify-between gap-2 mb-2">
+                        <div class="flex items-center space-x-2">
+                            <span class="text-xs font-bold border px-2.5 py-0.5 rounded bg-cyan-500/20 text-cyan-400 border-cyan-500/30">ENGINEERING MILESTONE</span>
+                            <span class="text-xs text-slate-500 font-mono">2026-10-15</span>
+                        </div>
+                        <a href="https://github.com/shuxiachai/academic-commercialization-agent/pull/192" target="_blank" class="text-xs text-indigo-400 hover:text-indigo-300 font-bold flex items-center space-x-1">
+                            <span>Verify Proof ↗</span>
+                        </a>
+                    </div>
+                    <h3 class="text-base font-bold text-white mb-1">Merged PR #192 in academic-commercialization-agent (771⭐): Bounded Execution Deadlines &amp; Exit Boundary</h3>
+                    <p class="text-xs text-slate-300 leading-relaxed font-medium">Engineered wall-clock execution deadline harness to guard against runaway paid LLM evaluations. Built 2-stage thread cleanup (cooperative cancellation + bytecode interrupt), Pydantic Crew compatibility, honest time-incomplete usage auditing, and offline regressions.</p>
+                </div>
+
+                <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 card-glow">
+                    <div class="flex items-center justify-between gap-2 mb-2">
+                        <div class="flex items-center space-x-2">
+                            <span class="text-xs font-bold border px-2.5 py-0.5 rounded bg-cyan-500/20 text-cyan-400 border-cyan-500/30">ENGINEERING MILESTONE</span>
                             <span class="text-xs text-slate-500 font-mono">2026-10-05</span>
                         </div>
                         <a href="https://github.com/ThreeMoonsLab/agents-shipgate/pull/967" target="_blank" class="text-xs text-indigo-400 hover:text-indigo-300 font-bold flex items-center space-x-1">
@@ -1259,6 +1287,22 @@
 
         function getFallbackAchievements() {
             return [
+                {
+                    "id": "ach-009",
+                    "title": "Merged PR #200 in academic-commercialization-agent (771⭐): Thread Ownership & Shared Runtime Isolation",
+                    "category": "ENGINEERING MILESTONE",
+                    "description": "Resolved Issue #197 by overhauling cell-owned thread boundary tracking in opt-in ablation deadline mode. Isolated explicit worker and callback threads from persistent CrewAI EventBus loops, preventing false timeouts while preserving batch-halting guarantees.",
+                    "proof_link": "https://github.com/shuxiachai/academic-commercialization-agent/pull/200",
+                    "date": "2026-10-21"
+                },
+                {
+                    "id": "ach-008",
+                    "title": "Merged PR #192 in academic-commercialization-agent (771⭐): Bounded Execution Deadlines & Exit Boundary",
+                    "category": "ENGINEERING MILESTONE",
+                    "description": "Engineered wall-clock execution deadline harness to guard against runaway paid LLM evaluations. Built 2-stage thread cleanup (cooperative cancellation + bytecode interrupt), Pydantic Crew compatibility, honest time-incomplete usage auditing, and offline regressions.",
+                    "proof_link": "https://github.com/shuxiachai/academic-commercialization-agent/pull/192",
+                    "date": "2026-10-15"
+                },
                 {
                     "id": "ach-007",
                     "title": "Opened Architecture PRs on academic-commercialization-agent (771⭐) & agents-shipgate (#967)",
